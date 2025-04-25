@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roanne's EDM Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #8a2be2);
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 4px 12px #ff69b4;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff;
+      color: #ffb6c1;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: #ffccff;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #ffb6c1;
+      margin: 20px auto;
+      display: block;
+      object-fit: cover;
+      box-shadow: 0 0 15px #ff66cc;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem;
+      color: #ffccff;
+      text-align: center;
+      text-shadow: 0 0 5px #ff99ff;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid #ff69b4;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 15px #ff1493;
+    }
+
+    .card p, .card a {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ffe6f0;
+    }
+
+    .card a {
+      display: inline-block;
+      margin: 0.4rem 0;
+      color: #ffb6c1;
+      text-decoration: none;
+      border-bottom: 1px dashed #fff;
+      transition: 0.3s;
+    }
+
+    .card a:hover {
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: #1a1a1a;
+      color: #ffb6c1;
+      box-shadow: 0 -4px 12px #da70d6;
+    }
+
+    /* Glitter animation */
+    .glitter {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: url('https://i.pinimg.com/originals/0f/38/17/0f3817da1af829075774018b36ebb587.gif');
+      background-repeat: repeat;
+      opacity: 0.08;
+      z-index: 0;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 10s infinite;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+      }
+    }
+
+    /* Ensuring images autofit */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glitter"></div>
+
+  <!-- Floating Hearts -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.animationDuration = `${5 + Math.random() * 10}s`;
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <header>
+    <h1>🌸 Finals Lab Task 1 - MySQL Basics 🌸</h1>
+    <p>🌷Shining through code and creativity🌷 </p>
+  </header>
+
+  <section>
+    <h2>Portfolio Overview</h2>
+    <div class="card">
+      <p>This portfolio demonstrates foundational MySQL skills using a multi-tiered company database. It covers writing SQL queries, designing table structures, and creating an ER diagram or relational schema. The portfolio also includes SQL scripts for the database and its tables, showcasing the setup and structure.</p>
+    </div>
+
+    <h2>Step by Step Process</h2>
+    <div class="card">
+      <ol>
+    <li><strong>Create the <code>employees</code> table:</strong>
+      <ul>
+        <li><code>employee_id</code>: Integer, auto-incremented, primary key.</li>
+        <li><code>employee_name</code>: VARCHAR(255), not null.</li>
+        <li><code>manager_id</code>: Integer, foreign key referencing <code>employee_id</code> in the same table.</li>
+      </ul>
+    </li>
+    <li><strong>Create the <code>departments</code> table:</strong>
+      <ul>
+        <li><code>department_id</code>: Integer, auto-incremented, primary key.</li>
+        <li><code>department_name</code>: VARCHAR(255), not null.</li>
+      </ul>
+    </li>
+    <li><strong>Create the <code>employee_departments</code> table:</strong>
+      <ul>
+        <li><code>employee_id</code>: Integer, foreign key referencing <code>employees.employee_id</code>.</li>
+        <li><code>department_id</code>: Integer, foreign key referencing <code>departments.department_id</code>.</li>
+        <li>Composite primary key: (<code>employee_id</code>, <code>department_id</code>).</li>
+      </ul>
+    </li>
+    <li><strong>Create the <code>employee_projects</code> table:</strong>
+      <ul>
+        <li><code>employee_id</code>: Integer, foreign key referencing <code>employees.employee_id</code>.</li>
+        <li><code>project_name</code>: VARCHAR(255), not null.</li>
+      </ul>
+    </li>
+    <li><strong>Create the <code>managers</code> table:</strong>
+      <ul>
+        <li><code>manager_id</code>: Integer, auto-incremented, primary key.</li>
+        <li><code>employee_id</code>: Integer, foreign key referencing <code>employees.employee_id</code>.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2>Screenshots</h2>
+
+  <h3>SQL Query Outputs</h3>
+  <ol>
+    <li><strong>Employees Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/aa194064-c90b-445f-9dbe-b1c457283db7" alt="Employees Table Output">
+    </li>
+    <li><strong>Departments Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/2e58fea6-4f4b-4573-8c9e-5c781342e4ea" alt="Departments Table Output">
+    </li>
+    <li><strong>Employee-Department Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/190c28f6-c19b-4ca7-855b-a3f7084ffdfe" alt="Employee-Department Table Output">
+    </li>
+    <li><strong>Employee Projects Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/2601769d-bd67-499c-9dca-cb54c5995868" alt="Employee Projects Table Output">
+    </li>
+    <li><strong>Managers Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/2acd1297-2b8a-4dbc-b37a-9b0e21f17107" alt="Managers Table Output">
+    </li>
+  </ol>
+
+  <h3>Table Structure</h3>
+  <ol>
+    <li><strong>Employees Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/17c8a746-843a-4ac5-841a-253749f7aea2" alt="Employees Table Structure">
+    </li>
+    <li><strong>Departments Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/d7ffa8ae-1e6d-42a6-8870-7b2e02f54a84" alt="Departments Table Structure">
+    </li>
+    <li><strong>Employee-Department Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/71dc899d-4fec-4a00-8d52-8ad1dc91b376" alt="Employee-Department Table Structure">
+    </li>
+    <li><strong>Employee Projects Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/adceae29-432c-461f-b158-d78cd44062ca" alt="Employee Projects Table Structure">
+    </li>
+    <li><strong>Managers Table</strong><br>
+      <img src="https://github.com/user-attachments/assets/e48696ef-b012-4232-9b2c-08336c64b3e5" alt="Managers Table Structure">
+    </li>
+  </ol>
+
+  <h3>EER Diagram</h3>
+  <img src="https://github.com/user-attachments/assets/8cc1be07-19ee-4e7f-bfa7-f46d97f7b2fa" alt="EER Diagram">
+
+</body>
+</html>
+    </div>
+  </section>
+
+  <footer>
+    🎀Stay Fierce, Stay Fabulous, and keep coding🎀
+  </footer>
+
+</body>
+</html>
